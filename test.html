@@ -90,7 +90,7 @@
   <script type="text/javascript">
      $(function(){
         $.get('wavFileIds.txt', function(data){
-            var array = data.split(',');
+            var fileNames = data.split('\n');
             console.log(array);
         });
      });
