@@ -13,7 +13,7 @@
 <body onload="drawTable()">
   <nav class="teal lighten-2" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">SLT (MOS Test)</a>
+      <a id="logo-container" href="#" class="brand-logo"></a>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
@@ -21,7 +21,7 @@
   
   <div class="container">
 
-<form action="ashish.php" method="get">
+<form action="/some address/" method="get">
  <table class="striped">
         <thead>
           <tr>
@@ -39,10 +39,11 @@
 
       <div class="row">
         <div class="input-field col s6">
-          
         </div>
-        <div class="input-field col s4">
-          <input placeholder="Name" name="name" id="name" type="text" class="validate">
+        <input id="sheetName" type="hidden" name="sheetName" value="">
+        <input id="numFiles" type="hidden" name="numFiles" value="">
+        <div class="input-field col s0">
+          <input placeholder="Name" name="name1" id="name" type="text" class="validate">
           <label for="first_name">Name</label>
         </div>
         
@@ -99,9 +100,20 @@
   <script type="text/javascript">
     //Get the filenames and call function to draw a table
     function drawTable() {
+
+      //Set page name
+      var logo = document.getElementById('logo-container');
+      logo.innerHTML = data.toUpperCase() + " MOS Test";
+      //Set SheetName 
+      var sheetName = document.getElementById('sheetName');
+      sheetName.setAttribute("value",data+"_"+type);
+
+      //drawTable
       $.get('wavFileIds.txt', function(data){
               fileNames = data.split('\n');
-              console.log(fileNames);
+              // console.log(fileNames);
+              var numFiles = document.getElementById('numFiles');
+              numFiles.setAttribute("value",fileNames.length);
               createTable(fileNames);
       });
     }
