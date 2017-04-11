@@ -10,7 +10,7 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body onload="createTable()">
+<body onload="drawTable()">
   <nav class="teal lighten-2" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">SLT (MOS Test)</a>
@@ -88,22 +88,24 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script type="text/javascript">
+    //Get the filenames and call function to draw a table
+    function drawTable() {
+      $.get('wavFileIds.txt', function(data){
+              fileNames = data.split('\n');
+              console.log(fileNames);
+              createTable(filenames);
+      });
+    }
     
   </script>
   <script type="text/javascript">
-    function createTable() {
+    function createTable(filenames) {
 
         //Global Variables
         var data = "slt" ;
 
         console.log('tableCreate');
-        //Fetching filenames
-         var fileNames ;
-          $.get('wavFileIds.txt', function(data){
-              fileNames = data.split('\n');
-              console.log(fileNames);
-          });
-         console.log('fles'+fileNames);
+        console.log('fles'+fileNames);
 
         var tbdy = document.getElementById('tableBody');
         for (var i = 0; i < fileNames.length ; i++) {
