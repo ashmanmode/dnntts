@@ -93,13 +93,13 @@
       $.get('wavFileIds.txt', function(data){
               fileNames = data.split('\n');
               console.log(fileNames);
-              createTable(filenames);
+              createTable(fileNames);
       });
     }
     
   </script>
   <script type="text/javascript">
-    function createTable(filenames) {
+    function createTable(fileNames) {
 
         //Global Variables
         var data = "slt" ;
