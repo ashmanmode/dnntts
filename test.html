@@ -99,12 +99,10 @@
         console.log('tableCreate');
         //Fetching filenames
          var fileNames ;
-         $(function(){
-            $.get('wavFileIds.txt', function(data){
-                fileNames = data.split('\n');
-                console.log(fileNames);
-            });
-         });
+          $.get('wavFileIds.txt', function(data){
+              fileNames = data.split('\n');
+              console.log(fileNames);
+          });
          console.log('fles'+fileNames);
 
         var tbdy = document.getElementById('tableBody');
