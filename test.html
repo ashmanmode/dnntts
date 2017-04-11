@@ -88,6 +88,15 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script type="text/javascript">
+    ///////////////////////////////////////////////////////////////////////////
+        var data = "slt" ;
+
+        //Synth - > for proposed model
+        //merlin -> for merlin model
+        var type = "synth";  
+        ////////////////////////////////////////////////////////////////////////
+  </script>
+  <script type="text/javascript">
     //Get the filenames and call function to draw a table
     function drawTable() {
       $.get('wavFileIds.txt', function(data){
@@ -100,9 +109,6 @@
   </script>
   <script type="text/javascript">
     function createTable(fileNames) {
-
-        //Global Variables
-        var data = "slt" ;
 
         console.log('tableCreate');
         console.log('fles'+fileNames);
@@ -117,9 +123,9 @@
             
             //Add content to td's
             td1.innerHTML = i+1;
-            td2.innerHTML = "<audio controls><source src=\"wav\\"+data+"\\synth\\"+fileNames[i]+".wav\" type=\"audio/wav\">Your browser does not support the audio element.</audio>"; 
+            td2.innerHTML = "<audio controls><source src=\"wav\\"+data+"\\"+type+"\\"+fileNames[i]+".wav\" type=\"audio/wav\">Your browser does not support the audio element.</audio>"; 
             td3.innerHTML = "<audio controls><source src=\"wav\\"+data+"\\target\\"+fileNames[i]+".wav\" type=\"audio/wav\">Your browser does not support the audio element.</audio>";
-            td4.innerHTML = "<div class=\"row\"><p class=\"col s2\"><input name=\"group1\" value=\"1\" type=\"radio\" id=\"test1\" /><label for=\"test1\"></label></p><p class=\"col s2\"><input name=\"group1\" value=\"2\" type=\"radio\" id=\"test2\" /><label for=\"test2\"></label></p><p class=\"col s2\"><input name=\"group1\" value=\"3\" type=\"radio\" id=\"test3\"/><label for=\"test3\"></label></p><p class=\"col s2\"><input name=\"group1\" value=\"4\" type=\"radio\" id=\"test4\" /><label for=\"test4\"></label></p><p class=\"col s2\"><input name=\"group1\" value=\"5\" type=\"radio\" id=\"test5\"/><label for=\"test5\">Excellent</label></p></div>"; 
+            td4.innerHTML = "<div class=\"row\"><p class=\"col s2\"><input name=\"g"+(i+1)+"\" value=\"1\" type=\"radio\" id=\"test1\" /><label for=\"test1\"></label></p><p class=\"col s2\"><input name=\"g"+(i+1)+"\" value=\"2\" type=\"radio\" id=\"test2\" /><label for=\"test2\"></label></p><p class=\"col s2\"><input name=\"g"+(i+1)+"\" value=\"3\" type=\"radio\" id=\"test3\"/><label for=\"test3\"></label></p><p class=\"col s2\"><input name=\"g"+(i+1)+"\" value=\"4\" type=\"radio\" id=\"test4\" /><label for=\"test4\"></label></p><p class=\"col s2\"><input name=\"g"+(i+1)+"\" value=\"5\" type=\"radio\" id=\"test5\"/><label for=\"test5\">Excellent</label></p></div>"; 
 
             tr.appendChild(td1)
             tr.appendChild(td2)
@@ -128,7 +134,6 @@
             tbdy.appendChild(tr);
         }
     }
-    // tableCreate();
   </script>
   </body>
 </html>
