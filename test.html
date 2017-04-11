@@ -88,13 +88,7 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script type="text/javascript">
-     var fileNames ;
-     $(function(){
-        $.get('wavFileIds.txt', function(data){
-            fileNames = data.split('\n');
-            console.log(fileNames);
-        });
-     });
+    
   </script>
   <script type="text/javascript">
     function createTable() {
@@ -103,6 +97,15 @@
         var data = "slt" ;
 
         console.log('tableCreate');
+        //Fetching filenames
+         var fileNames ;
+         $(function(){
+            $.get('wavFileIds.txt', function(data){
+                fileNames = data.split('\n');
+                console.log(fileNames);
+            });
+         });
+
         var tbdy = document.getElementById('tableBody');
         for (var i = 0; i < fileNames.length ; i++) {
             var tr = document.createElement('tr');
