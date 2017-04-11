@@ -88,9 +88,10 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script type="text/javascript">
+     var fileNames ;
      $(function(){
         $.get('wavFileIds.txt', function(data){
-            var fileNames = data.split('\n');
+            fileNames = data.split('\n');
             console.log(fileNames);
         });
      });
