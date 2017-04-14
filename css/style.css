@@ -55,3 +55,11 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th {
+    text-align: center;
+}
