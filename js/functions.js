@@ -14,7 +14,7 @@ tbdy.innerHTML = "<thead><tr><th>No.</th><th>Synthesized Wave</th><th>Target Wav
 
 //Set Form Attribute for Method
 var form = document.getElementById('mainForm');
-form.setAttribute("method","get");
+form.setAttribute("method","post");
 
 //drawTable
 $.get('wavFileIds.txt', function(data){  //asd
