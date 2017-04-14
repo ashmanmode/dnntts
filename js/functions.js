@@ -10,8 +10,10 @@ sheetName.setAttribute("value",data+"_"+type);
 
 //drawTable
 $.get('wavFileIds.txt', function(data){
+      //Get the fileNmes for wavs and shuffle them
       fileNames = data.split('\n');
-      // console.log(fileNames);
+      fileNames = shuffle(fileNames); 
+
       var numFiles = document.getElementById('numFiles');
       numFiles.setAttribute("value",fileNames.length);
       createTable(fileNames);
@@ -23,7 +25,7 @@ $.get('wavFileIds.txt', function(data){
 function createTable(fileNames) {
 
 console.log('tableCreate');
-console.log('fles'+fileNames);
+console.log('files\n'+fileNames);
 
 var tbdy = document.getElementById('tableBody');
 for (var i = 0; i < fileNames.length ; i++) {
